@@ -1,4 +1,5 @@
 using namespace std;
+#include <bits/stdc++.h>
 struct Node {
     int data;
     struct Node* next;
@@ -47,6 +48,27 @@ struct LinkedList {
         temp->next = head;
         head = temp;
     }
+
+    /* Function to search for a data in linked list */
+    void search(int key)
+    {
+        struct Node* temp = head;
+        bool found= false;
+
+        /* checking each node for matching data */
+        while (temp != NULL)
+         {
+            if(temp->data == key)
+            found=true;
+            temp = temp->next;
+        }
+
+        if(found == true)
+        cout << "Yes";
+
+        else
+        cout << "No";
+    }
 };
  
 /* Driver code*/
@@ -66,5 +88,12 @@ int main()
  
     cout << "\nReversed linked list \n";
     ll.print();
+
+    cout << "\nIs 20 present in the linked list : ";
+    ll.search(20);          //ll.search(*data to be searched goes here*);  
+
+    cout << "\nIs 40 present in the linked list : ";
+    ll.search(40);          //ll.search(*data to be searched goes here*);
+
     return 0;
 }
