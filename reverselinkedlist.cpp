@@ -40,6 +40,7 @@ struct LinkedList {
             cout << temp->data << " ";
             temp = temp->next;
         }
+        cout << endl;
     }
  
     void push(int data)
@@ -64,10 +65,17 @@ struct LinkedList {
         }
 
         if(found == true)
-        cout << "Yes";
+        cout << "Yes"<< endl;
 
         else
-        cout << "No";
+        cout << "No"<< endl;
+    }
+
+    /*pop out element from head*/
+    void pop_front()
+    {
+        struct Node* second = head->next;
+        head= second;       //second element becomes the head
     }
 };
  
@@ -94,6 +102,10 @@ int main()
 
     cout << "\nIs 40 present in the linked list : ";
     ll.search(40);          //ll.search(*data to be searched goes here*);
+
+    ll.pop_front();
+    cout << "\nUpdated linked list after pop from front\n";
+    ll.print();
 
     return 0;
 }
