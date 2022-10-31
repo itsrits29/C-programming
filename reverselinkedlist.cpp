@@ -77,6 +77,23 @@ struct LinkedList {
         struct Node* second = head->next;
         head= second;       //second element becomes the head
     }
+
+    void pop_end()
+    {
+        struct Node* temp = head;
+        struct Node* prev = head;
+
+        /*traversing to last node*/
+         while (temp != NULL) {
+         if(temp->next != NULL)
+         prev=temp;
+
+         temp = temp->next;
+
+        }     
+
+        prev->next =NULL;   //second last node as tail node
+    }
 };
  
 /* Driver code*/
@@ -105,6 +122,14 @@ int main()
 
     ll.pop_front();
     cout << "\nUpdated linked list after pop from front\n";
+    ll.print();
+
+    ll.push(20);
+    cout << "\nUpdated linked list after push 20\n";
+    ll.print();
+
+    cout << "\nUpdated linked list after pop from back\n";
+    ll.pop_end();
     ll.print();
 
     return 0;
